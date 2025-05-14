@@ -15,8 +15,8 @@ fn main() {
 
     // The `put!` and `putln!` macros correspond to `print!` and `println!`
     // macros but are more efficient when printing lots of output. If CLion
-    // highlights them macros as errors, you can move the macro definitions from
-    // the end of the file to the top. Both compile fine, it's just CLion being
+    // highlights them as errors, you can move the macro definitions from the
+    // end of the file to the top. Both compile fine, it's just CLion being
     // weird.
     putln!(io, "{ans}");
 }
