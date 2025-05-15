@@ -11,8 +11,9 @@ fine for starting out.
 
 For editor support, there is [rust-analyzer]. It works as a [VsCode extension],
 or generally in anything that supports the Language Server Protocol (vim,
-neovim, etc.). Alternatively, CLion also has Rust support built in.
+neovim, etc.). Alternatively, [RustRover] is a Jetbrains IDE for Rust.
 
 [Rustup]: https://rustup.rs
 [rust-analyzer]: https://rust-analyzer.github.io/
 [VsCode extension]: https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
+[RustRover]: https://www.jetbrains.com/rust/

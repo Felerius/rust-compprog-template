@@ -14,9 +14,9 @@ fn main() {
     let ans: u64 = io.read_n::<u64>(n).sum();
 
     // The `put!` and `putln!` macros correspond to `print!` and `println!`
-    // macros but are more efficient when printing lots of output. If CLion
+    // macros but are more efficient when printing lots of output. If RustRover
     // highlights them as errors, you can move the macro definitions from the
-    // end of the file to the top. Both compile fine, it's just CLion being
+    // end of the file to the top. Both compile fine, it's just RustRover being
     // weird.
     putln!(io, "{ans}");
 }
