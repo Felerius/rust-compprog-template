@@ -52,6 +52,10 @@ impl<I: Iterator<Item = &'static str>> Io<I> {
     fn collect_n<T: FromStr<Err: Debug>, C: FromIterator<T>>(&mut self, n: usize) -> C {
         self.read_n(n).collect()
     }
+
+    fn flush(&mut self) {
+        self.1.flush().expect("failed to flush stdout");
+    }
 }
 
 #[macro_export]
