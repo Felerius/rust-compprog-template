@@ -21,6 +21,23 @@ fn main() {
     putln!(io, "{ans}");
 }
 
+/// This reads the full body at once. It is much faster than reading it line-by-line.
+/// CAVEAT: it does not allow for interactive exchange, e.g. cannot be used for
+/// back and forth exchanges, or manually pasting to stdin.
+fn io_full_body() -> Io<impl Iterator<Item = &'static str>> {
+    // Leaking the input lines is a bit wasteful but generally fine in a
+    // competitive programming context and avoids having to deal with lifetimes
+    // in the input reading.
+    let mut b = String::new();
+    let _f = io::stdin().read_to_string(&mut b).unwrap();
+
+    let input = b
+        .leak()
+        .lines()
+        .flat_map(|line| line.split_ascii_whitespace());
+    Io(input, BufWriter::new(io::stdout().lock()))
+}
+
 fn io() -> Io<impl Iterator<Item = &'static str>> {
     // Leaking the input lines is a bit wasteful but generally fine in a
     // competitive programming context and avoids having to deal with lifetimes
