@@ -1,6 +1,7 @@
 use std::{
     fmt::Debug,
-    io::{self, BufWriter, StdoutLock, Write},
+    io::{self, BufWriter, Read, StdoutLock, Write},
+    iter::FromIterator,
     str::FromStr,
 };
 
@@ -63,7 +64,7 @@ impl<I: Iterator<Item = &'static str>> Io<I> {
     }
 
     fn read_n<T: FromStr<Err: Debug>>(&mut self, n: usize) -> impl Iterator<Item = T> + '_ {
-        (0..n).map(|_| self.read())
+        (0..n).map(move |_| self.read())
     }
 
     fn collect_n<T: FromStr<Err: Debug>, C: FromIterator<T>>(&mut self, n: usize) -> C {
